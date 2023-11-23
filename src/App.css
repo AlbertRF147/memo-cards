@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  color: #fff;
+  font-family: sans-serif, arial;
+}
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: #0c0c0c;
+}
+
