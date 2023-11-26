@@ -1,14 +1,13 @@
-import { useState } from 'react'
 import './App.css'
 import AppProvider from './context/appContext'
-import { Cards } from './containers/Cards'
+import { Board } from './containers/Board'
 
 function App() {
 
   return (
     <AppProvider>
       <main className='app'>
-        <Cards />
+        <Board />
       </main>
     </AppProvider>
   )

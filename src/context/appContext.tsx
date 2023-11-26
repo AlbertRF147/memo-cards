@@ -1,35 +1,13 @@
 import * as React from 'react'
-import { ICard, CardsContextType, ToggleCardValType, SaveCardType } from '../@types/cards'
+import { ICard, BoardContextType } from '../@types/cards'
+import { generateCards, shuffleCards } from '../utils'
 
-export const AppContext = React.createContext<CardsContextType | null>(null!)
+export const AppContext = React.createContext<BoardContextType | null>(null!)
 
 const AppProvider = ({ children }: { children: React.ReactNode }): React.ReactNode => {
-  const [cards, setCards] = React.useState<ICard[]>([
-    {
-      value: 1,
-      flipped: false,
-      solved: false,
-      position: 0
-    },
-    {
-      value: 2,
-      flipped: false,
-      solved: false,
-      position: 1
-    },
-    {
-      value: 1,
-      flipped: false,
-      solved: false,
-      position: 2
-    },
-    {
-      value: 2,
-      flipped: false,
-      solved: false,
-      position: 3
-    },
-  ])
+  const _cards = generateCards(10)
+  const shuffledCards = shuffleCards(_cards)
+  const [cards, setCards] = React.useState<ICard[]>(shuffledCards)
 
   return (
     <AppContext.Provider value={{ cards, setCards }}>

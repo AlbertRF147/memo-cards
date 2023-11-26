@@ -10,7 +10,7 @@ export type SaveCardType = (card: ICard) => void
 export type FlipCardType = (cardPosition: number) => void
 export type GetFilteredType = () => ICard[]
 
-export type CardsContextType = {
+export type BoardContextType = {
   cards: ICard[] | []
   setCards: (cards: ICard[]) => void
 }

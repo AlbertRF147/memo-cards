@@ -1,8 +1,6 @@
-import React, { useContext } from 'react'
-import { AppContext } from '../context/appContext'
-import { CardsContextType } from '../@types/cards'
+import useCardUtils from '../hooks/useCardUtils'
 
-type CardProps = {
+export type CardProps = {
   value: number
   flipped: boolean
   solved: boolean
@@ -10,16 +8,16 @@ type CardProps = {
 }
 
 export const Card = ({ value, flipped, solved, cardPosition }: CardProps) => {
-  const { saveCard, toggleCardVal } = useContext(AppContext) as CardsContextType
+
+  const { flipCardState } = useCardUtils()
 
   const handleOnCardClick = (cardPosition: number) => {
-    const card = toggleCardVal(cardPosition, 'flipped')
-    saveCard(card, cardPosition)
+    flipCardState(cardPosition)
   }
 
   return (
     <div className='card border p-3 text-center rounded cursor-pointer' onClick={() => handleOnCardClick(cardPosition)}>
-      {flipped
+      {flipped || solved
         ? value
         : '???'
       }

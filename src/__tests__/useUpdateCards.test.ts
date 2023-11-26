@@ -1,7 +1,6 @@
-import { renderHook } from '@testing-library/react'
-import useCardUtils from '../hooks/useCardUtils'
 import { act } from 'react-dom/test-utils'
 import { ICard } from '../@types/cards'
+import { cardUtils } from '../utils'
 
 const _cards = [
   {
@@ -30,12 +29,10 @@ const _cards = [
   },
 ]
 
-// const { flipCard, solveCard, flipBackAll, shuffleCards, generateCards } = result.current
+const { flipCard, solveCard, flipBackAll, generateCards } = cardUtils(_cards)
+
 
 test('should flip a card', () => {
-  const { result } = renderHook(() => useCardUtils(_cards))
-  const { flipCard } = result.current
-
   let testCards = _cards
   const cardToFlipPosition = 1
   
@@ -43,15 +40,13 @@ test('should flip a card', () => {
 
   act(() => {
     testCards = flipCard(cardToFlipPosition)
+    flipCard
   })
 
   expect(testCards[cardToFlipPosition].flipped).toBeTruthy()
 })
 
 test('should solve a card', () => {
-  const { result } = renderHook(() => useCardUtils(_cards))
-  const { solveCard } = result.current
-
   let testCards = _cards
   const cardToFlipPosition = 0
   
@@ -65,9 +60,6 @@ test('should solve a card', () => {
 })
 
 test('should flip all cards back', () => {
-  const { result } = renderHook(() => useCardUtils(_cards))
-  const { flipBackAll } = result.current
-
   let testCards = _cards
   
   expect(testCards.some(_card => _card.flipped)).toBeTruthy()
@@ -80,9 +72,6 @@ test('should flip all cards back', () => {
 })
 
 test('generate a bunch of cards', () => {
-  const { result } = renderHook(() => useCardUtils(_cards))
-  const { generateCards } = result.current
-
   const numOfCards = 10
   let testCards: ICard[] | [] = []
 
