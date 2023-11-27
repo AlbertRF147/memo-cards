@@ -2,16 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .btn {
+    @apply text-center border border-white rounded p-4 text-lg uppercase cursor-pointer hover:bg-white hover:text-black;
+  }
+  .btn.active {
+    @apply text-black bg-white;
+  }
+}
+
 #root {
   color: #fff;
   font-family: sans-serif, arial;
 }
 
 html, body {
-  height: 100vh;
-  width: 100vw;
-  min-height: 100vh;
-  min-width: 100vw;
   background: #0c0c0c;
 }
 

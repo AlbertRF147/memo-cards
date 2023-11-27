@@ -1,28 +1,28 @@
-import './App.css'
-import AppProvider from './context/appContext'
-import { Board } from './components/Board'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import "./App.css";
+import AppProvider from "./context/appContext";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { MainPage } from "./pages/MainPage";
+import { GamePage } from "./pages/GamePage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>This is the game popup</div>,
+    element: <MainPage />,
   },
   {
     path: "/game",
-    element: <Board />
-  }
-])
+    element: <GamePage />,
+  },
+]);
 
 function App() {
-
   return (
     <AppProvider>
-      <main className='app'>
+      <main className="app">
         <RouterProvider router={router} />
       </main>
     </AppProvider>
-  )
+  );
 }
 
-export default App
+export default App;

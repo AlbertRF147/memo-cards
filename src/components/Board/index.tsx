@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from 'react'
-import { AppContext } from '../context/appContext'
-import { BoardContextType, ICard } from '../@types/cards'
-import { Card } from '../components/Card'
-import useCardUtils from '../hooks/useCardUtils'
+import { AppContext } from '../../context/appContext'
+import { BoardContextType, ICard } from '../../@types/cards'
+import { Card } from '../../components/Card'
+import useCardUtils from '../../hooks/useCardUtils'
 
 export const Board = () => {
   const [solving, setSolving] = useState(false)
