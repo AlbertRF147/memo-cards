@@ -1,27 +1,19 @@
-# React + TypeScript + Vite
+# Memo Cards
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Concentration (card game).
 
-Currently, two official plugins are available:
+From [wikipedia](https://en.wikipedia.org/wiki/Concentration_(card_game)):
+> Concentration is a round game in which all of the cards are laid face down on a surface and two cards are flipped face up over each turn. The object of the game is to turn over pairs of matching cards.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+There are 2 main pages controlled by a react router (SPA):
+- "/" => menu
+- "/game" => where the game is played
 
-## Expanding the ESLint configuration
+There is a menu the user can always open. From there the user can start/restart the game, and also change the number of cards to play. Once the game starts, a timer will keep track of the time taken to complete the game. The idea is to add a score board in the near feature.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+TODO:
+1. Add react tests.
+2. Add an attemps counter.
+3. Add a score board.
+4. Add a sign-in functionality.
+5. Store results per user.
