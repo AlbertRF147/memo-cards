@@ -1,3 +1,5 @@
+import { Config, ReturnValue } from "use-timer/lib/types"
+
 export interface ICard {
   value: number
   flipped: boolean
@@ -18,4 +20,7 @@ export type BoardContextType = {
   numCardsToPlay: numCardsToPlay
   setNumCardsToPlay: (numCardsToPlay: numCardsToPlay) => void
   restart: (callback: () => void) => void
+  timer: ReturnValue
+  finished: boolean
+  setFinished: (finished: boolean) => void
 }

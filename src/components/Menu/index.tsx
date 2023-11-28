@@ -17,7 +17,7 @@ export const Menu = () => {
   }
 
   return (
-    <div className="p-4 border-4 border-white rounded flex flex-col">
+    <div className="p-4 md:p-10 lg:mx-48 border-4 border-white rounded flex flex-col">
       <h2 className="text-4xl text-center mb-4">-- MENU --</h2>
       <Link className="btn my-2" to="/game">
         {solved.length ? "Continue" : "Start"}
