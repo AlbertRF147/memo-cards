@@ -17,3 +17,4 @@ TODO:
 3. Add a score board.
 4. Add a sign-in functionality.
 5. Store results per user.
+6. Add 404 page.
