@@ -17,4 +17,5 @@ export type BoardContextType = {
   setCards: (cards: ICard[]) => void
   numCardsToPlay: numCardsToPlay
   setNumCardsToPlay: (numCardsToPlay: numCardsToPlay) => void
+  restart: (callback: () => void) => void
 }

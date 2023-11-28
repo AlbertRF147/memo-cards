@@ -10,14 +10,19 @@ const AppProvider = ({ children }: { children: React.ReactNode }): React.ReactNo
   const shuffledCards = shuffleCards(_cards)
   const [cards, setCards] = React.useState<ICard[]>(shuffledCards)
 
-  React.useEffect(() => {
+  const restart = React.useCallback((callback?: () => void) => {
     const newCards = generateCards(numCardsToPlay)
     const shuffledNewCards = shuffleCards(newCards)
     setCards(shuffledNewCards)
+    if (callback) callback()
   }, [numCardsToPlay])
 
+  React.useEffect(() => {
+    restart()
+  }, [numCardsToPlay, restart])
+
   return (
-    <AppContext.Provider value={{ cards, setCards, numCardsToPlay, setNumCardsToPlay }}>
+    <AppContext.Provider value={{ cards, setCards, numCardsToPlay, setNumCardsToPlay, restart }}>
       {children}
     </AppContext.Provider>
   )
